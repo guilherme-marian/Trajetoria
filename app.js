@@ -7,44 +7,31 @@ menu.addEventListener('click', function()
     menuLinks.classList.toggle('active')
 })
 
-dragElement(document.getElementById("dragBox__card"));
+const addBtn = document.getElementById("add__note");
+const container = document.getElementById("notes__container");
 
-function dragElement(elmnt)
+let notes = [];
+
+function createNote({id, content, x= 100, y= 100})
 {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    
-    elmnt.onmousedown = dragMouseDown;
-    
-    function dragMouseDown(e)
-    {
-        e = e || window.event;
-        e.preventDefault();
-        
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        
-        document.onmousemove = elementDrag;
-    }
+    const noteEl = document.createElement("div");
+    noteEl.className = "note";
+    noteEl.style.left = `${x}px`;
+    noteEl.style.top = `${x}px`;
 
-    function elementDrag(e)
-    {
-        e = e || window.event;
-        e.preventDefault();
 
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-
-        elmnt.style.top = (elmnt.offsetTop - pos2) + 'px'
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + 'px'
-    }
-
-    function closeDragElement()
-    {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }   
+    const textarea = document.createElement("textarea");
+    textarea.value
 }
 
+addBtn.addEventListener("click", ()=>{
+    const newNote = 
+    {
+       id: Date.now(),
+       content:"",
+       x: 100,
+       y: 100,
+    };
+    notes.push(newNote);
+    createNote(newNote);
+});
