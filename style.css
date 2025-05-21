@@ -290,7 +290,7 @@
     Cards
 */
 
-#drag__container
+#dragBox
 {
     background-color: #131313;
     background-image: linear-gradient(#292a30 .1em, transparent, .1em),
@@ -299,7 +299,7 @@
     height: 100vh;
 }
 
-#drag__card
+#dragBox__card
 {
     width: 400px;
     height: 400px;
@@ -307,4 +307,13 @@
     border-radius: 5px;
     cursor: pointer;
     position: fixed;
+}
+.dragBox__text
+{
+    text-align: center;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    color: #fff;
 }
