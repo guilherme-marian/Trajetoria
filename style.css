@@ -477,7 +477,7 @@
     border-radius: 50%;
     box-shadow: 0 2px 4px #00000033, inset 0 1px 2px #ffffff66;
     color: #333;
-    cursor: move;
+    cursor: pointer;
     user-select: none;
     transition: all 0.25s ease;
     z-index: 10;
