@@ -176,30 +176,34 @@
     from
     {
         opacity: 0;
-        size: 0.5
+        transform: translateX(-100%);
     }
     to 
     {
         opacity: 1;
-        size: 1;
+        transform: translateX(0);
     }
 }
 
 .box__container
 {
-    width: 100%;
-    display:block;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: auto;
     z-index: 1;
     background:#131313; 
 }
 .box
 {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90px;
-    margin-top: 20px;
-    background-color: #25ff3757;
-    padding: 240px;
+    border-radius: 20px;
+    width:200px;
+    background-color: #9fffa7;
+    padding: 140px 240px;
     border: 1px solid #292a30;
     animation: rising linear;
     animation-timeline: view();
@@ -529,4 +533,11 @@
 .note .delete:hover
 {
     background: rgba(200,0,0, 0.85);
+}
+
+
+.footer
+{
+    color: #fff;
+    background-color: #131313;
 }
