@@ -49,11 +49,12 @@ new Chart("barChart", {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    aspectRatio: 1,
+    aspectRatio: 2,
     legend: {display: false},
     scales: {
       yAxes: [{
         ticks: {
+          grace: '999%',
           beginAtZero: true
         }
       }]
