@@ -8,6 +8,8 @@ const pieColors = [
   "#1e7145"
 ];
 
+Chart.defaults.color = "#fff"
+
 new Chart("pieChart", {
   type: "pie",
   data: {
@@ -18,6 +20,10 @@ new Chart("pieChart", {
     }]
   },
    options: {
+    customCanvasBackgroundColor:
+    {
+      color: '#131313',
+    },
     responsive: true,
     maintainAspectRatio: false,
     aspectRatio: 1,
@@ -59,6 +65,46 @@ new Chart("barChart", {
         }
       }]
     },
+
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    }
+  }
+});
+
+const xRadarChart = ["samuel", "guilherme", "danilo", "luís"];
+const yRadarChart = [90, 10, 50, 99];
+const radarColor =
+[
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("radarChart", {
+  type: "radar",
+  data: {
+    labels: xRadarChart,
+    datasets: [{
+      backgroundColor: radarColor,
+      data: yRadarChart,
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 1,
+    legend: {display: false},
 
     title: {
       display: true,
