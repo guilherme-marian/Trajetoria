@@ -98,4 +98,4 @@ addBtn.addEventListener("click", ()=>{
     createNote(newNote);
 });
 
-notes.forEach((note) => createNote(note))
+notes.forEach((note) => createNote(note));

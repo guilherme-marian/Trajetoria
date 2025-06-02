@@ -127,7 +127,7 @@
 .main
 {
     
-    background-color: #131313;
+   
     opacity: 0.9;
     height: 100%;
 }
@@ -196,13 +196,11 @@
     align-content: center;
     max-width: auto;
     z-index: 1;
-    background:#131313; 
 }
 .box
 {
+    position: relative;
     border-radius: 20px;
-    width:200px;
-    background-color: #9fffa7;
     padding: 140px 240px;
     border: 1px solid #292a30;
     animation: rising linear;
@@ -541,3 +539,4 @@
     color: #fff;
     background-color: #131313;
 }
+
