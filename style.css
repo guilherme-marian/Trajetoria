@@ -204,7 +204,7 @@
     padding: 140px 240px;
     border: 1px solid #292a30;
     animation: rising linear;
-    animation-timeline: view();
+    animation-timeline: view(); 
     animation-range: entry 0% cover 30%;
 }
 

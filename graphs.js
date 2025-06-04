@@ -86,8 +86,12 @@ new Chart("barChart", {
   }
 });
 
-const xRadarChart = ["samuel", "guilherme", "danilo", "luís"];
-const yRadarChart = [70, 90, 56, 99];
+const xRadarChart = ["Design", "Prototipagem", "Documentação", "Pesquisa", "Divulgação"];
+const yRadarChartDanilo = [20, 0, 0, 10, 0];
+const yRadarChartSamuel = [10, 0, 50, 50, 20];
+const yRadarChartLuis =[90, 0, 0, 0, 100];
+const yRadarChartPedro = [0, 0, 60, 40, 0];
+const yRadarChartGuilherme = [10, 100, 5, 2, 0];
 const radarColor =
 [
   "#b91d47",
@@ -102,8 +106,7 @@ new Chart("radarChart", {
   data: {
     labels: xRadarChart,
     datasets: [{
-      backgroundColor: radarColor,
-      data: yRadarChart,
+      data: yRadarChartDanilo,
       fill: true,
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgb(255, 99, 132)',
@@ -111,7 +114,22 @@ new Chart("radarChart", {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(255, 99, 132)'
-    }]
+    }, {
+      data: yRadarChartSamuel,
+      backgroundColor: 'rgba',
+      
+    }, {
+      data: yRadarChartLuis,
+      backgroundColor: '#f00'
+    }, {
+      data: yRadarChartPedro,
+      backgroundColor: '#0f0'
+    }, {
+      data: yRadarChartGuilherme,
+      backgroundColor: '#fff'
+    }
+
+  ]
   },
   options: {
     responsive: true,
@@ -121,7 +139,7 @@ new Chart("radarChart", {
 
     title: {
       display: true,
-      text: "World Wine Production 2018"
+      text: "Desenvolvimento do projeto"
     }
   }
 });
