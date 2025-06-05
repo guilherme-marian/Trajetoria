@@ -30,7 +30,7 @@ new Chart("pieChart", {
     maintainAspectRatio: false,
     aspectRatio: 1,
     title: {
-      display: true,
+      display: false,
       text: "World Wide Wine Production 2018"
     }
   }
@@ -68,7 +68,7 @@ new Chart("barChart", {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    aspectRatio: 2,
+    aspectRatio: 1,
     legend: {display: false},
     scales: {
       yAxes: [{
@@ -80,7 +80,7 @@ new Chart("barChart", {
     },
 
     title: {
-      display: true,
+      display: false,
       text: "World Wine Production 2018"
     }
   }
@@ -120,7 +120,7 @@ new Chart("radarChart", {
     legend: {display: false},
 
     title: {
-      display: true,
+      display: false,
       text: "World Wine Production 2018"
     }
   }
@@ -147,6 +147,9 @@ new Chart("linearChart", {
     }]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 1,
     legend: {display: false}
   }
 });
