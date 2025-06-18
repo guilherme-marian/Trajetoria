@@ -15,18 +15,15 @@ const connection = mysql.createConnection ({
     password: 'root'
 })
 
-app.use(express.static('/../'));
-app.use('/../', express.static(__dirname + '/../style.css'));
+app.use(express.static('public'));
+app.use('public', express.static(__dirname + '/../style.css'));
 
 const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + "/../index.html") );
+    res.sendFile(path.join(__dirname + "/../public/index.html") );
 });
 
-app.get('/notes', (req, res) => {
-    res.sendFile( + "/notes.html")
-})
 
 app.listen(PORT, () => {
     console.log(`Running on Port ${PORT}`);
