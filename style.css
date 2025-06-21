@@ -612,6 +612,8 @@
     height: 460px;
     overflow-y: auto;
     flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ccccf5 transparent;
 }
 
 .chat-body .message {
@@ -697,7 +699,6 @@
 }
 
 .chat-footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     background: #FFF;
