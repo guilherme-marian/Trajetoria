@@ -601,23 +601,6 @@
     0 32px 64px -48px rgba(0,0,0, 0.5);
 }
 
-.chatbot-container::before
-{
-    content: "";
-    position: absolute;
-    width: 32%;
-    height: 65%;  
-    background-image: conic-gradient(#8a8a8a);
-    border-radius: 15px;
-    padding: 4px;
-}
-
-.chatbot-container::before
-{
-    filter: blur(10px);
-    opacity: 0.5;
-} 
-
 
 .chat-header {
     display: flex;
