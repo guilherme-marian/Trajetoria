@@ -1,2 +1,1 @@
-# 
-https://guilherme-marian.github.io/Trajetoria/
+# https://guilherme-marian.github.io/Trajetoria/
