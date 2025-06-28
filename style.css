@@ -105,13 +105,47 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #1a8a23;
+    background: #1f2325;
     color:#fff;
+    position: relative;
 }
+
+@property --angle
+{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.button::after, .button::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+    background-image: conic-gradient(from var(--angle), #9ff000, #9fffa7, #9ff000);
+    border-radius: 4px;
+    padding: 1px;
+    z-index: -1;
+    animation: 3s spin infinite linear;
+}
+
+.button::before
+{
+    filter: blur(4px);
+    opacity: 0.5;
+} 
 
 .button:hover
 {
-    background-color: #4837ff;
+    background-color: transparent;
+    
+    transition: all 0.3s ease;
+}
+.button:hover::after
+{
+    background-image: linear-gradient(to bottom right, #4837ff, #a097ff);
+    box-shadow: 4px 0 10px #4837ff77, -4px 0 10px #a097ff6c;
     transition: all 0.3s ease;
 }
 
@@ -121,6 +155,19 @@
     transform: all 0.3s ease;
 }
 
+@keyframes spin
+{
+    from
+    {
+        --angle: 0deg;
+    }
+    to 
+    {
+        --angle: 360deg;
+    }
+    
+}
+
 /*
     Main page
 */
@@ -128,8 +175,7 @@
 .main
 {
     
-    background-color: #131313;
-    opacity: 0.9;
+    background-color: #1f2325;
     height: 100%;
 }
 
@@ -165,11 +211,6 @@
     background-color: #4837ff;
     transition: all 0.3s ease;
 
-}
-
-.main__img--container
-{
-    
 }
 
 @keyframes rising
@@ -372,7 +413,6 @@
 #add__note:hover
 {
     transform: scale(1.05);
-    background: linear-gradient(to top, #9ff000 0%, #9fffa7 100%)
 }
 
 @keyframes ripple
@@ -546,18 +586,38 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#EEEEFF, #C8C7FF);
+    background: #1f2325;
 }  
 
 .chatbot-popup {
-    position: relative;
+    z-index: 1;
+    position: flex;
     width: 420px;
-    background:#FFF;
+    background: #1f2325;
+    opacity: 0.95;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 128px 0 rgba(0,0,0, 0.1),
     0 32px 64px -48px rgba(0,0,0, 0.5);
 }
+
+.chatbot-container::before
+{
+    content: "";
+    position: absolute;
+    width: 32%;
+    height: 65%;  
+    background-image: conic-gradient(#8a8a8a);
+    border-radius: 15px;
+    padding: 4px;
+}
+
+.chatbot-container::before
+{
+    filter: blur(10px);
+    opacity: 0.5;
+} 
+
 
 .chat-header {
     display: flex;
@@ -701,14 +761,14 @@
 .chat-footer {
     bottom: 0;
     width: 100%;
-    background: #FFF;
+    background: #1f2325;
     padding: 15px 22px 20px;
 }
 
 .chat-footer .chat-form {
     display: flex;
     align-items: center;
-    background: #FFF;
+    background: #1f2325;
     border-radius: 32px;
     outline: 1px solid #CCCCE5;
 }
@@ -718,6 +778,8 @@
 }
 
 .chat-form .message-input {
+    background-color: #1f2325;
+    color: #fff;
     border: none;
     outline: none;
     height: 47px;
@@ -749,6 +811,7 @@
     transition: 0.2s ease;
 }
 
+
 .chat-form .chat-controls #send-message {
     color: #FFF;
     display: none;
@@ -764,5 +827,6 @@
 }
 
 .chat-form .chat-controls button:hover {
-    background: #f1f1ff;
+    color: #FFF;
+    background: #5350C4;
 }

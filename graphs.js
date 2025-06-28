@@ -17,6 +17,7 @@ new Chart("pieChart", {
     datasets: [{
       fill: true,
       borderColor: '#fff',
+      color: '#fff',
       backgroundColor: pieColors,
       data: yPieChart
     }]
@@ -86,33 +87,42 @@ new Chart("barChart", {
   }
 });
 
-const xRadarChart = ["samuel", "guilherme", "danilo", "luís"];
-const yRadarChart = [70, 90, 56, 99];
-const radarColor =
-[
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
+const data = {
+  labels: [
+    'Eating',
+    'Drinking',
+    'Sleeping',
+    'Designing',
+    'Coding',
+    'Cycling',
+    'Running'
+  ],
+  datasets: [{
+    label: 'Employee A',
+    data: [65, 59, 90, 81, 56, 55, 40],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }, {
+    label: 'Employee B',
+    data: [28, 48, 40, 19, 96, 27, 100],
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }]
+};
 
 new Chart("radarChart", {
   type: "radar",
-  data: {
-    labels: xRadarChart,
-    datasets: [{
-      backgroundColor: radarColor,
-      data: yRadarChart,
-      fill: true,
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgb(255, 99, 132)',
-      pointBackgroundColor: 'rgb(255, 99, 132)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(255, 99, 132)'
-    }]
-  },
+  data: data,
   options: {
     responsive: true,
     maintainAspectRatio: false,
