@@ -590,7 +590,6 @@
 }  
 
 .chatbot-popup {
-    z-index: 1;
     position: flex;
     width: 420px;
     background: #1f2325;
