@@ -17,6 +17,7 @@ new Chart("pieChart", {
     datasets: [{
       fill: true,
       borderColor: '#fff',
+      color: '#fff',
       backgroundColor: pieColors,
       data: yPieChart
     }]
@@ -30,7 +31,7 @@ new Chart("pieChart", {
     maintainAspectRatio: false,
     aspectRatio: 1,
     title: {
-      display: true,
+      display: false,
       text: "World Wide Wine Production 2018"
     }
   }
@@ -68,7 +69,7 @@ new Chart("barChart", {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    aspectRatio: 2,
+    aspectRatio: 1,
     legend: {display: false},
     scales: {
       yAxes: [{
@@ -80,57 +81,48 @@ new Chart("barChart", {
     },
 
     title: {
-      display: true,
+      display: false,
       text: "World Wine Production 2018"
     }
   }
 });
 
-const xRadarChart = ["Design", "Prototipagem", "Documentação", "Pesquisa", "Divulgação"];
-const yRadarChartDanilo = [20, 0, 0, 10, 0];
-const yRadarChartSamuel = [10, 0, 50, 50, 20];
-const yRadarChartLuis =[90, 0, 0, 0, 100];
-const yRadarChartPedro = [0, 0, 60, 40, 0];
-const yRadarChartGuilherme = [10, 100, 5, 2, 0];
-const radarColor =
-[
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
+const data = {
+  labels: [
+    'Eating',
+    'Drinking',
+    'Sleeping',
+    'Designing',
+    'Coding',
+    'Cycling',
+    'Running'
+  ],
+  datasets: [{
+    label: 'Employee A',
+    data: [65, 59, 90, 81, 56, 55, 40],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }, {
+    label: 'Employee B',
+    data: [28, 48, 40, 19, 96, 27, 100],
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }]
+};
 
 new Chart("radarChart", {
   type: "radar",
-  data: {
-    labels: xRadarChart,
-    datasets: [{
-      data: yRadarChartDanilo,
-      fill: true,
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgb(255, 99, 132)',
-      pointBackgroundColor: 'rgb(255, 99, 132)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(255, 99, 132)'
-    }, {
-      data: yRadarChartSamuel,
-      backgroundColor: 'rgba',
-      
-    }, {
-      data: yRadarChartLuis,
-      backgroundColor: '#f00'
-    }, {
-      data: yRadarChartPedro,
-      backgroundColor: '#0f0'
-    }, {
-      data: yRadarChartGuilherme,
-      backgroundColor: '#fff'
-    }
-
-  ]
-  },
+  data: data,
   options: {
     responsive: true,
     maintainAspectRatio: false,
@@ -138,8 +130,8 @@ new Chart("radarChart", {
     legend: {display: false},
 
     title: {
-      display: true,
-      text: "Desenvolvimento do projeto"
+      display: false,
+      text: "World Wine Production 2018"
     }
   }
 });
@@ -165,6 +157,9 @@ new Chart("linearChart", {
     }]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 1,
     legend: {display: false}
   }
 });
