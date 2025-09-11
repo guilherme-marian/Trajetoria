@@ -701,6 +701,12 @@
     border-radius: 13px 13px 3px 13px;
 }
 
+.chat-body .user-message .attachment {
+    width: 50%;
+    margin-top: -7px;
+    border-radius: 13px 13px 13px 13px;
+}
+
 .chat-body .bot-message .thinking-indicator{
     display: flex;
     padding-block: 15px;
@@ -748,6 +754,7 @@
 
 .chat-footer .chat-form {
     display: flex;
+    position: relative;
     align-items: center;
     background: #1f2325;
     border-radius: 32px;
@@ -810,4 +817,52 @@
 .chat-form .chat-controls button:hover {
     color: #FFF;
     background: #5350C4;
+}
+
+.chat-form .file-upload-wrapper {
+    height: 35px;
+    width: 35px;
+    position: relative;
+}
+
+.chat-form .file-upload-wrapper :where(img,button) {
+    position: absolute;
+}
+
+.chat-form .file-upload-wrapper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-form .file-upload-wrapper #file-cancel {
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-form .file-upload-wrapper :where(img, #file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded #file-upload {
+    display: none;
+}
+
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel {
+    display:flex;
+}
+
+em-emoji-picker {
+    position: absolute;
+    left: 50%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 350px;
+    visibility: hidden;
+    transform: translateX(-50%);
+}
+
+body.show-emoji-picker em-emoji-picker {
+    visibility: visible;
 }
