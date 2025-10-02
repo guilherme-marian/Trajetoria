@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 const chatBody = document.querySelector('.chat-body');
 const messageInput = document.querySelector('.message-input');
 const sendMessageButton = document.querySelector('#send-message');
@@ -7,7 +9,7 @@ const fileCancelButton = document.querySelector("#file-cancel");
 const chatbotToggler = document.querySelector("#chatbot-toggler");
 const closeChatbot = document.querySelector("#close-chatbot");
 
-const API_KEY = 'AIzaSyDhQK8C5Oq6XQrX1A_OdnvsMvehsAu6UJ0';
+const API_KEY =  process.env.GOOGLE_API_KEY;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
