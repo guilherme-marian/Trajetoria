@@ -40,6 +40,7 @@ function submitForm() {
     .then(response => response.json())
     .then(data => {
         if (data.imagePath) {
+            console.log(data);
             const img = document.createElement('img');
             img.src = data.imagePath;
             img.alt = 'Bar chart';
