@@ -55,6 +55,7 @@ app.post('/submit', (req, res) => {
     console.log('Chart title:', title);
     console.log('Graph type:', chart_type);
     
+    connection.query('INSERT INTO Graphs (data_json) VALUES (?)', [jsonString])
 
     const pythonProcess = spawn(
         'python',
