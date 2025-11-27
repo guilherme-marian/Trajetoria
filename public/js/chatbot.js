@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 const chatBody = document.querySelector('.chat-body');
 const messageInput = document.querySelector('.message-input');
 const sendMessageButton = document.querySelector('#send-message');
@@ -9,7 +7,7 @@ const fileCancelButton = document.querySelector("#file-cancel");
 const chatbotToggler = document.querySelector("#chatbot-toggler");
 const closeChatbot = document.querySelector("#close-chatbot");
 
-const API_KEY =  process.env.GOOGLE_API_KEY;
+const API_KEY =  'AIzaSyAZETbw_fq4bDrr_hWwhPiG_xVmTqJL7yE';
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
@@ -23,8 +21,6 @@ const userData = {
 const chatHistory = []
 
 const initialInputHeight = messageInput.scrollHeight;
-
-
 
 const createMessageElement = (content, ...classes) => {
     const div = document.createElement('div');
@@ -175,5 +171,9 @@ sendMessageButton.addEventListener('click', (e) => handleOutgoingMessage(e));
 
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
 
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
-closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+chatbotToggler.addEventListener("click", () => 
+    console.log("toggled") ||
+    document.body.classList.toggle("show-chatbot"));
+closeChatbot.addEventListener("click", () => 
+    console.log("closed") ||
+    document.body.classList.remove("show-chatbot"));

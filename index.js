@@ -69,7 +69,7 @@ app.post('/submit', (req, res) => {
 
     pythonProcess.on('close', (code) => {
         console.log(`Process exited with code ${code}`);
-        res.json({ status: 'success', data: result, imagePath: `/public/img/${imageName}`  });
+        res.json({ status: 'success', data: result, imagePath: `/img/${imageName}`  });
     });
 });
 
