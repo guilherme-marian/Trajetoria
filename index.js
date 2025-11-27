@@ -11,6 +11,7 @@ import crypto from 'crypto';
 import notesRoute from './routes/notesRoute.js';
 import aboutRoute from './routes/aboutUsRoute.js';
 import tarefaRoute from './routes/tarefaRoute.js';
+import loginRoute from './routes/loginRoute.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,6 +32,7 @@ const connection = mysql.createConnection( {
 app.use(notesRoute(connection));
 app.use(aboutRoute(connection));
 app.use(tarefaRoute(connection));
+app.use(loginRoute(connection));
 
 connection.connect (function(err) {
     if(err) {
@@ -43,7 +45,11 @@ connection.connect (function(err) {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + 'index.html');
+});
+
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'home.html'));
 });
 
 app.post('/submit', (req, res) => {

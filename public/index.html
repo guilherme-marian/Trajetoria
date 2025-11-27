@@ -1,136 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trajetória </title>
-        <link 
-        rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0&" />
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://kit.fontawesome.com/427ec276cd.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="navbar__container">
-                <a href="http://localhost:3000/" id="navbar__logo">TRAJETÓRIA
-                    <i class="fa-solid fa-arrow-trend-up" style="color: #9ff000;"></i></a>
-                <div class="navbar__toggle" id="mobile-menu">
-                    <span class="bar"></span><span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="navbar__menu">
-                    <li class="navbar__item">
-                        <a href="http://localhost:3000/" class="navbar__links">
-                            Home
-                        </a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="http://localhost:3000/notas" class="navbar__links">
-                            Notas
-                        </a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="http://localhost:3000/tarefas" class="navbar__links">
-                            Gerenciamento de Tarefas
-                        </a>
-                    </li>
-                    <li class="navbar__btn">
-                        <a href="http://localhost:3000/aboutUs" class="button">
-                            AI Chat
-                        </a>
-                    </li>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tragetória - Home</title>
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <header>
+    <button class="btn-home" onclick="mostrarMascote()"></button> <!-- botão home -->
+    <div class="menu">
+      <button class="btn" onclick="location.href='/register'">register</button>
+      <button class="btn" onclick="location.href='/login'">login</button>
+    </div>
+  </header>
 
-                </ul>
-            </div>
-        </nav>  
-        <div class="main">
-            <div class="main__container">
-                <div class="main__content">
-                    <div id="chart-info">
+  <main>
+    <div class="content">
+      <img src="SiteImages/logo_tragetoria-removebg-preview.png" alt="Logo Tragetória"> <!-- (img) logo -->
+      <div class="text">
+        <h1>Tragetória</h1>
+        <p>site para auxiliar pequenos empreendedores<br>do agronegócio no gerenciamento</p>
+        <button class="start-btn" onclick="location.href='/register'">Começar</button>
+      </div>
+    </div>
 
-                    </div><button type="button" onClick="chartType('bar')">Bar Graph</button>
-                    <button type="button" onClick="chartType('line')">Line Graph</button>
-                    <button type="button" onClick="chartType('pie')">Pie Graph</button>
-                    <button type="button" onclick="addPerson()">Add Line</button>
-                    <div id="people-container">
-                        
-                    </div>
-                    <input type="text" placeholder="Graph Title" id="title" name="title">
-                    <button type="submit" onclick="submitForm()">Submit</button>
-                    <div id="chart-container">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="box__container">
-                
-            </div>
-        </div>
+    <!-- Mascote oculto -->
+    <div id="mascote-popup">
+      <img src="/SiteImages/Maconhadog-removebg-preview.png" alt="Mascote Tragetória"> <!-- (img) coloque sua imagem do mascote aqui -->
+    </div>
+  </main>
 
-         <button id="chatbot-toggler">
-        <span class="material-symbols-rounded">mode_comment</span>
-        <span class="material-symbols-rounded">close</span>
-    </button>
-    <div class="chatbot-container">
-        <div class="chatbot-popup">
-                    <div class="chat-header">
-                        <div class="header-info">
-                            <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-                                 <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-                            </svg>
-                            <h2 class="logo-text">ChatBot</h2>
-                        </div>
-                        <button id="close-chatbot" class="material-symbols-rounded">
-                            keyboard_arrow_down
-                        </botton>
-                    </div>
-            
+  <script>
+    function mostrarMascote() {
+      const mascote = document.getElementById("mascote-popup");
+      mascote.classList.add("ativo");
 
-                    <div class="chat-body">
-                        <div class="message bot-message">
-                            <svg class="bot-avatar"xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-                                <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-                            </svg>
-                            <div class="message-text">
-                                Como posso ajudar você hoje?
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chat-footer">
-                        <form action="#" class="chat-form">
-                            <textarea placeholder="Mensagem..." class="message-input" required></textarea>
-                            <div class="chat-controls">
-                                <button id="emoji-picker" class="material-symbols-rounded">
-                                sentiment_satisfied
-                                </button type="button">
-                                <div class="file-upload-wrapper">
-                                    <input type="file" accept="images/*" id="file-input" hidden>
-                                    <img src="#">
-                                    <button type="button" id="file-upload" class="material-symbols-rounded">
-                                    attach_file
-                                    </button type="button">
-                                    <button type="button" id="file-cancel" class="material-symbols-rounded">
-                                    close
-                                    </button type="button">
-                                </div>
-                                <button type="submit" id="send-message" class="material-symbols-rounded">
-                                arrow_upward
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        <footer class="footer">
-            <div class=""></div>
-        </footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-        <script src="js/graphs.js"></script>
-        <script src="js/app.js"></script>
-        
-        <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
-        <script src="js/chatbot.js"></script>
-    </body>
+      // Remove depois de 2 segundos
+      setTimeout(() => {
+        mascote.classList.remove("ativo");
+      }, 2000);
+    }
+  </script>
+</body>
 </html>
