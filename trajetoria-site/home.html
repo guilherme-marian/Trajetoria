@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tragetória - Home</title>
+  <link rel="stylesheet" href="/public.externo/home.css">
+</head>
+<body>
+  <header>
+    <button class="btn-home" onclick="mostrarMascote()"></button> <!-- botão home -->
+    <div class="menu">
+      <button class="btn" onclick="location.href='registrar.html'">register</button>
+      <button class="btn" onclick="location.href='login.html'">login</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="content">
+      <img src="imgs/logo_tragetoria-removebg-preview.png" alt="Logo Tragetória"> <!-- (img) logo -->
+      <div class="text">
+        <h1>Tragetória</h1>
+        <p>site para auxiliar pequenos empreendedores<br>do agronegócio no gerenciamento</p>
+        <button class="start-btn" onclick="location.href='/dentro/painel.html'">Começar</button>
+      </div>
+    </div>
+
+    <!-- Mascote oculto -->
+    <div id="mascote-popup">
+      <img src="/imgs/Sol.jfif" alt="Mascote Tragetória"> <!-- (img) coloque sua imagem do mascote aqui -->
+    </div>
+  </main>
+
+  <script>
+    function mostrarMascote() {
+      const mascote = document.getElementById("mascote-popup");
+      mascote.classList.add("ativo");
+
+      // Remove depois de 2 segundos
+      setTimeout(() => {
+        mascote.classList.remove("ativo");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

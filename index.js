@@ -10,6 +10,7 @@ import crypto from 'crypto';
 
 import notesRoute from './routes/notesRoute.js';
 import aboutRoute from './routes/aboutUsRoute.js';
+import tarefaRoute from './routes/tarefaRoute.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -29,6 +30,7 @@ const connection = mysql.createConnection( {
 
 app.use(notesRoute(connection));
 app.use(aboutRoute(connection));
+app.use(tarefaRoute(connection));
 
 connection.connect (function(err) {
     if(err) {
@@ -41,7 +43,7 @@ connection.connect (function(err) {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/submit', (req, res) => {
@@ -53,6 +55,7 @@ app.post('/submit', (req, res) => {
     console.log('Chart title:', title);
     console.log('Graph type:', chart_type);
     
+    connection.query('INSERT INTO Graphs (data_json) VALUES (?)', [jsonString])
 
     const pythonProcess = spawn(
         'python',

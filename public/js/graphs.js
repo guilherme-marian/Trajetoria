@@ -4,8 +4,8 @@ function addPerson() {
     const div = document.createElement('div');
 
     div.innerHTML = `
-        <input type="text" placeholder="Nome" class="nome">
-        <input type="number" placeholder="Age" class="age">
+        <input type="text" placeholder="Text" class="nome">
+        <input type="number" placeholder="Value" class="age">
     `;
     container.appendChild(div);
 }
@@ -15,7 +15,7 @@ let selectedChartType = 'bar';
 function chartType(type) {
     selectedChartType = type;
     console.log('Selected chart type:', selectedChartType);
-}
+}   
 
 function submitForm() {
     const chart_type = selectedChartType; 
@@ -40,6 +40,7 @@ function submitForm() {
     .then(response => response.json())
     .then(data => {
         if (data.imagePath) {
+            console.log(data);
             const img = document.createElement('img');
             img.src = data.imagePath;
             img.alt = 'Bar chart';

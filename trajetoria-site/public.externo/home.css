@@ -1,0 +1,136 @@
+/* ====== Cores base ====== */ 
+:root {
+  --verde-escuro: #363B32;
+  --verde-meio: #5E6A57;
+  --verde-claro: #C7D0C4;
+  --branco: #ffffff;
+}
+
+/* ====== Geral ====== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--verde-escuro);
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--verde-claro);
+}
+
+/* ====== Header ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.btn-home {
+  background-color: var(--verde-meio);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 15px;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-home:hover {
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--branco);
+}
+
+/* ====== Conteúdo principal ====== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.content img {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.text h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--verde-claro);
+}
+
+.text p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--verde-claro);
+  margin-bottom: 25px;
+}
+
+.start-btn {
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background-color: var(--branco);
+}
+
+/* ====== Mascote popup ====== */
+#mascote-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  z-index: 999;
+}
+
+#mascote-popup img {
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Ativo (mostra o mascote) */
+#mascote-popup.ativo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
