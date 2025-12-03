@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Gráficos - Tragetória</title>
+  <link rel="stylesheet" href="./dentro_css/graficos.css">
+   <link rel="stylesheet" href="./dentro_css/geral.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Tragetória</h2>
+    <nav>
+      <a href="painel.html">Agrochat</a>
+      <a href="inserirDados.html">Inserir Dados</a>
+      <a href="notas.html">Notas</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="graficos.html" class="active">Gráficos</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+    <button class="btn-sair">Sair</button>
+  </aside>
+
+  <main class="content">
+    <h1>Dashboard de Gráficos</h1>
+
+    <!-- Formulário para criar novo gráfico -->
+    <div class="form-dados">
+      <label>Meses (separados por vírgula):</label>
+      <input type="text" id="inputMeses" placeholder="Ex: Janeiro,Fevereiro,Março">
+
+      <label>Valores (separados por vírgula):</label>
+      <input type="text" id="inputValores" placeholder="Ex: 120,150,180">
+
+      <label>Tipo de Gráfico:</label>
+      <select id="inputTipo">
+        <option value="bar">Barra</option>
+        <option value="line">Linha</option>
+        <option value="pie">Pizza</option>
+        <option value="doughnut">Rosca</option>
+      </select>
+
+      <button id="btnAdicionarGrafico">Adicionar Gráfico</button>
+    </div>
+
+    <!-- Container dos gráficos -->
+    <div class="dashboard" id="dashboard"></div>
+  </main>
+
+  <script src="./dentro_js/graficos.js"></script>
+</body>
+</html>

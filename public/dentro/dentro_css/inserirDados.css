@@ -1,0 +1,90 @@
+
+/* ======== CONTEÚDO ======== */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  background-color: #2f382f;
+  border-radius: 20px;
+  width: 60%;
+  padding: 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  border: 1px solid #4b5a4b;
+}
+
+.form-card h1 {
+  color: #cde1cc;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.form-card p {
+  color: #b8c6b6;
+  margin-bottom: 30px;
+}
+
+/* ======== FORM ======== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #d7e3d5;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #d9e1d7;
+  color: #1d221d;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus {
+  background-color: #edf3ea;
+}
+
+/* ======== BOTÕES ======== */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.salvar {
+  background-color: #4e6e4e;
+  color: #fff;
+}
+
+.salvar:hover {
+  background-color: #5f875f;
+}
+
+.cancelar {
+  background-color: #c44a4a;
+  color: #fff;
+}
+
+.cancelar:hover {
+  background-color: #da5c5c;
+}

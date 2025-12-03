@@ -1,0 +1,37 @@
+
+/* ======== CONTEÚDO ======== */
+.content {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sobre-card {
+  background-color: #2e342e;
+  padding: 40px;
+  border-radius: 20px;
+  width: 60%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #4a5a4a;
+}
+
+.sobre-card h1 {
+  color: #c6d8c2;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.sobre-card p {
+  color: #bfcfbf;
+  line-height: 1.6;
+}
+
+.creditos {
+  margin-top: 30px;
+  border-top: 1px solid #4a5a4a;
+  padding-top: 15px;
+  text-align: center;
+  color: #a8b9a8;
+}

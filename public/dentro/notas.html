@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloco de Notas - Tragetória</title>
+  <link href=".\dentro_css\notas.css" rel="stylesheet">
+  <link href=".\dentro_css\geral.css" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Tragetória</h2>
+    <nav>
+      <a href="painel.html">Agrochat</a>
+      <a href="inserirDados.html">Inserir Dados</a>
+      <a href="notas.html" class="active">Notas</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="graficos.html">Gráficos</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+    <button class="btn-sair">Sair</button>
+  </aside>
+
+  <main class="content">
+    <header class="notas-header">
+      <h1>Bloco de Notas</h1>
+      <button class="btn-adicionar">+ Nova Nota</button>
+    </header>
+
+    <div class="nova-nota-form">
+      <input type="text" id="tituloNota" placeholder="Título da nota">
+      <textarea id="conteudoNota" placeholder="Escreva sua nota..."></textarea>
+      <input type="color" id="corNota" value="#2f382f">
+      <button id="criarNotaBtn">Criar Nota</button>
+    </div>
+
+    <section class="notas-container">
+      <div class="nota">
+        <h3>Planejamento da Semana</h3>
+        <p>Revisar os dados de produção e organizar as metas para a próxima colheita.</p>
+      </div>
+
+      <div class="nota">
+        <h3>Custos de Transporte</h3>
+        <p>Analisar se há rotas mais baratas para envio das cargas.</p>
+      </div>
+
+      <div class="nota">
+        <h3>Contato com Fornecedor</h3>
+        <p>Mandar mensagem para confirmar entrega de insumos até sexta.</p>
+      </div>
+    </section>
+  </main>
+
+  <script href="./dentro_js/notas.js"></script>
+</body>
+</html>
