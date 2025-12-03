@@ -4,8 +4,8 @@ function addPerson() {
     const div = document.createElement('div');
 
     div.innerHTML = `
-        <input type="text" placeholder="Text" class="nome">
-        <input type="number" placeholder="Value" class="age">
+        <input type="text" placeholder="Texto" class="name">
+        <input type="number" placeholder="Valor" class="number">
     `;
     container.appendChild(div);
 }

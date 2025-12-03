@@ -49,11 +49,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'));
+    res.sendFile(__dirname + '/public/home.html');
 });
 
-app.post('/submit', (req, res) => {
-    const {people, title, chart_type} = req.body; 
+app.post('/Criar', (req, res) => {
+    const {title, GraphType} = req.body; 
     const jsonString = JSON.stringify(people);
     const imageName = `output_${Date.now()}_${crypto.randomBytes(4).toString('hex')}.png`;
     console.log('Received data:', jsonString);
@@ -61,7 +61,16 @@ app.post('/submit', (req, res) => {
     console.log('Chart title:', title);
     console.log('Graph type:', chart_type);
     
-    connection.query('INSERT INTO Graphs (data_json) VALUES (?)', [jsonString])
+    connection.query('INSERT INTO Graphs (title, chart_type, data_json) VALUES (?)', [title, GraphType, jsonString], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Erro no servidor');
+        }
+        else {
+            res.send('Registro bem sucedido!');
+            res.redirect('/home');
+        }
+    });
 
     const pythonProcess = spawn(
         'python',

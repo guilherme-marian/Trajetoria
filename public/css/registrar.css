@@ -55,6 +55,7 @@ form {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 input[type="submit"] {
   border: none;

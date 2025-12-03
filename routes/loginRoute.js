@@ -18,14 +18,14 @@ const loginRoute = (connection) => {
     });
 
     router.post('/loginAccount', (req, res) => {
-        const { username, password } = req.body;
-        connection.query('SELECT * FROM Users WHERE username = ? AND password = ?', [username, password], (err, results) => {
+        const { Usuario, Email, Password } = req.body;
+        connection.query('SELECT * FROM Users WHERE username = ? AND email = ? AND senha = ?', [Usuario, Email, Password], (err, results) => {
             if (err) {
                 console.error(err);
                 res.status(500).send('Erro no servidor');
             }
             else if (results.length > 0) {
-                res.send('Login bem sucedido!');
+                console.log('Login bem sucedido!');
                 res.redirect('/home');
             }
             else {
@@ -35,14 +35,14 @@ const loginRoute = (connection) => {
     });
 
     router.post('/registerAccount', (req, res) => {
-        const { username, password } = req.body;   
-        connection.query('INSERT INTO Users (username, password) VALUES (?, ?)', [username, password], (err, results) => {
+        const { Usuario, Password, Email } = req.body;   
+        connection.query('INSERT INTO Users (username, email , senha) VALUES (?, ?, ?)', [Usuario, Email, Password], (err, results) => {
             if (err) {
                 console.error(err);
                 res.status(500).send('Erro no servidor');
             }
             else {
-                res.send('Registro bem sucedido!');
+                console.log('Registro bem sucedido!');
                 res.redirect('/home');
             }
         });
