@@ -1,0 +1,171 @@
+/* ======== GERAL ======== */ 
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #1f241f;
+      color: #e0e6de;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ======== SIDEBAR ======== */
+    .sidebar {
+      width: 230px;
+      background-color: #2d342d;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px 20px;
+      border-right: 1px solid #3f4b3f;
+    }
+
+    .logo {
+      color: #d3e3cf;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      color: #dbe5d8;
+      text-decoration: none;
+      margin: 12px 0;
+      padding: 10px 15px;
+      background-color: #3d463d;
+      border-radius: 12px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background-color: #4e5d4e;
+    }
+
+    .btn-sair {
+      background-color: #212821;
+      border: none;
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-sair:hover {
+      background-color: #3a463a;
+    }
+
+    /* ======== CONTEÚDO ======== */
+    .content {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      overflow-y: auto;
+    }
+
+    .notas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .notas-header h1 {
+      font-size: 1.8rem;
+      color: #cde1cc;
+    }
+
+    .btn-adicionar {
+      background-color: #4e6e4e;
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-adicionar:hover {
+      background-color: #5f875f;
+    }
+
+    /* ======== FORMULÁRIO NOVA NOTA ======== */
+    .nova-nota-form {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .nova-nota-form input[type="text"],
+    .nova-nota-form textarea,
+    .nova-nota-form input[type="color"] {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #4b5a4b;
+      background-color: #2f382f;
+      color: #e0e6de;
+      font-family: "Poppins", sans-serif;
+      width: 100%;
+    }
+
+    .nova-nota-form textarea {
+      resize: vertical;
+    }
+
+    .nova-nota-form button {
+      align-self: flex-start;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4e6e4e;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nova-nota-form button:hover {
+      background-color: #5f875f;
+    }
+
+    /* ======== NOTAS ======== */
+    .notas-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    .nota {
+      background-color: #2f382f;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #4b5a4b;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, background-color 0.3s;
+    }
+
+    .nota:hover {
+      transform: translateY(-5px);
+      background-color: #3b463b;
+    }
+
+    .nota h3 {
+      color: #d6e7d4;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .nota p {
+      color: #b9c6b9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }

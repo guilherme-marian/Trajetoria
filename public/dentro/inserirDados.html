@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inserir Dados - Tragetória</title>
+  <link rel="stylesheet" href="./dentro_css/inserirDados.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Tragetória</h2>
+    <nav>
+      <a href="painel.html">Agrochat</a>
+      <a href="inserir.html" class="active">Inserir Dados</a>
+      <a href="notas.html">Notas</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="graficos.html">Gráficos</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+    <button class="btn" onclick="location.href='painel.html'">Voltar</button>
+  </aside>
+
+  <main class="content">
+    <section class="form-card">
+      <h1>Inserir Dados</h1>
+      <p>Adicione novas informações para o controle de produção e vendas.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="produto">Nome do Produto</label>
+          <input type="text" id="produto" placeholder="Ex: Soja, Milho, Café...">
+        </div>
+
+        <div class="form-group">
+          <label for="quantidade">Quantidade (kg)</label>
+          <input type="number" id="quantidade" placeholder="Ex: 500">
+        </div>
+
+        <div class="form-group">
+          <label for="lucro">Lucro Estimado (R$)</label>
+          <input type="number" id="lucro" placeholder="Ex: 1200.00">
+        </div>
+
+        <div class="form-group">
+          <label for="data">Data de Registro</label>
+          <input type="date" id="data">
+        </div>
+
+        <div class="form-buttons">
+          <button type="reset" class="btn cancelar">Cancelar</button>
+          <button type="submit" class="btn salvar">Salvar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

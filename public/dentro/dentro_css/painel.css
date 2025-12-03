@@ -1,0 +1,144 @@
+/* ====== Cores ====== */
+:root {
+  --verde-escuro: #363B32;
+  --verde-meio: #5E6A57;
+  --verde-claro: #C7D0C4;
+  --branco: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--verde-escuro);
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--branco);
+  height: 100vh;
+}
+
+/* ====== Estrutura geral ====== */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ====== MENU LATERAL ====== */
+.sidebar {
+  background-color: var(--verde-meio);
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+  border-right: 3px solid var(--verde-claro);
+}
+
+.sidebar h1 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: var(--branco);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-btn {
+  width: 90%;
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: var(--branco);
+}
+
+.nav-btn.ativo {
+  background-color: var(--branco);
+  color: var(--verde-meio);
+}
+
+/* ====== Botão sair ====== */
+.sair-btn {
+  margin-top: auto;
+  background-color: var(--verde-escuro);
+  color: var(--branco);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 25px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 90%;
+  transition: 0.3s;
+}
+
+.sair-btn:hover {
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+/* ====== Painel ====== */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.painel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 80%;
+  background-color: var(--verde-meio);
+  border-radius: 25px;
+  padding: 40px;
+}
+
+/* ====== Mascote ====== */
+.mascote-area img {
+  width: 350px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+/* ====== Chat ====== */
+.chat-area {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: var(--verde-claro);
+  border-radius: 20px;
+  padding: 30px;
+  color: var(--verde-escuro);
+  height: 70%;
+  overflow-y: auto;
+}
+
+.mensagem-bot p {
+  background-color: var(--branco);
+  padding: 12px 18px;
+  border-radius: 15px;
+  align-self: flex-start;
+}
+
+.mensagem-user p {
+  background-color: var(--verde-escuro);
+  color: var(--branco);
+  padding: 12px 18px;
+  border-radius: 15px;
+  align-self: flex-end;
+}
