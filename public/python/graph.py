@@ -22,9 +22,9 @@ try:
 
     df = pd.DataFrame(data)
 
-    df['age'] = pd.to_numeric(df['age'], errors='coerce')
+    df['number'] = pd.to_numeric(df['number'], errors='coerce')
 
-    ax = df.plot(x='nome', y='age', kind= chart_type, legend=False)
+    ax = df.plot(x='name', y='number', kind= chart_type, legend=False)
     ax.set_title(chart_title)
     plt.tight_layout()
 

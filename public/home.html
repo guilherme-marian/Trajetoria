@@ -49,17 +49,21 @@
                     <div id="chart-info">
 
                     </div>
-                    <form action="/Criar" method="post">
-                        <input type="radio" name="GraphType" id="GraphType" onClick="chartType('bar')">Bar Graph</input>
-                        <input type="radio" name="GraphType" id="GraphType" onClick="chartType('line')">Line Graph</input>
-                        <input type="radio" name="GraphType" id="GraphType" onClick="chartType('pie')">Pie Graph</input>
-                        <input type="button" onclick="addPerson()">Add Line</input>
-                        <div id="people-container">
-                            
-                        </div>
-                        <input type="text" placeholder="Graph Title" id="title" name="title">
-                        <input type="submit" onclick="submitForm()">
-                    </form>
+                    
+                    <div id="graphs-container">
+                        <form action="/Criar" method="post">
+                            <input type="radio" name="GraphType" id="GraphType" value="bar" onClick="chartType('bar')">Bar Graph</input>
+                            <input type="radio" name="GraphType" id="GraphType" value="line" onClick="chartType('line')">Line Graph</input>
+                            <input type="radio" name="GraphType" id="GraphType" value="pie" onClick="chartType('pie')">Pie Graph</input>
+                            <input type="button" onclick="addLine()">Add Line</input>
+                            <div id="line-container">
+                                
+                            </div>
+                            <input type="text" placeholder="Graph Title" id="title" name="title">
+                            <input type="submit" onclick="submitForm(event)">
+                        </form>
+                    </div>
+                    
                     
                     <div id="chart-container">
                         

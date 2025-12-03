@@ -53,28 +53,27 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/Criar', (req, res) => {
-    const {title, GraphType} = req.body; 
-    const jsonString = JSON.stringify(people);
+    const {line, title, GraphType} = req.body; 
+    const jsonString = JSON.stringify(line);
     const imageName = `output_${Date.now()}_${crypto.randomBytes(4).toString('hex')}.png`;
     console.log('Received data:', jsonString);
     console.log('Generated image name:', imageName);
     console.log('Chart title:', title);
-    console.log('Graph type:', chart_type);
+    console.log('Graph type:', GraphType);
     
-    connection.query('INSERT INTO Graphs (title, chart_type, data_json) VALUES (?)', [title, GraphType, jsonString], (err, results) => {
+    connection.query('INSERT INTO Graphs (title, chart_type, data_json) VALUES (?, ?, ?)', [title, GraphType, jsonString], (err, results) => {
         if (err) {
             console.error(err);
             res.status(500).send('Erro no servidor');
         }
         else {
-            res.send('Registro bem sucedido!');
-            res.redirect('/home');
+            console.log('Registro bem sucedido!');
         }
     });
 
     const pythonProcess = spawn(
         'python',
-        [path.join(__dirname, '/public/python/graph.py'), jsonString, imageName, title, chart_type],
+        [path.join(__dirname, '/public/python/graph.py'), jsonString, imageName, title, GraphType],
         { cwd: __dirname }
     );
 
