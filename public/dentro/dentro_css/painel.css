@@ -1,66 +1,7 @@
-/* ====== Cores ====== */
-:root {
-  --verde-escuro: #363B32;
-  --verde-meio: #5E6A57;
-  --verde-claro: #C7D0C4;
-  --branco: #FFFFFF;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--verde-escuro);
-  font-family: "Poppins", Arial, sans-serif;
-  color: var(--branco);
-  height: 100vh;
-}
-
 /* ====== Estrutura geral ====== */
 .container {
   display: flex;
   height: 100vh;
-}
-
-/* ====== MENU LATERAL ====== */
-.sidebar {
-  background-color: var(--verde-meio);
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 15px;
-  border-right: 3px solid var(--verde-claro);
-}
-
-.sidebar h1 {
-  font-size: 1.8rem;
-  margin-bottom: 40px;
-  color: var(--branco);
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  align-items: center;
-}
-
-.nav-btn {
-  width: 90%;
-  background-color: var(--verde-claro);
-  color: var(--verde-escuro);
-  font-weight: 700;
-  border: none;
-  border-radius: 15px;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.nav-btn:hover {
-  background-color: var(--branco);
 }
 
 .nav-btn.ativo {
