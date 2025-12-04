@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   .then(res => res.json())
   .then(data => {
     if (data.success) {
-      localStorage.setItem('userId', data.userId); // ✅ store userId
+      localStorage.setItem('userId', data.userId); 
       window.location.href = '/home';
     } else {
       alert(data.message || 'Erro ao fazer login');

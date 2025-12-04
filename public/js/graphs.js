@@ -83,19 +83,11 @@ function loadUserGraphs(userId) {
 
             graphs.forEach(graph => {
                 const img = document.createElement('img');
-                btn.onclick = () => {
-                    fetch(`/delete-graph/${graph.id}`, { method: 'DELETE' })
-                        .then(response => {
-                            if (response.ok) {
-                                loadUserGraphs(userId);
-                            }
-                        });
-                }
                 img.src = `img/${graph.image_path}`;
                 img.alt = graph.title;
                 img.style.maxWidth = '400px';
                 img.style.margin = '10px';
-                container.appendChild(img, btn);
+                container.appendChild(img);
             });
         })
         .catch(err => console.error('Error loading graphs:', err));

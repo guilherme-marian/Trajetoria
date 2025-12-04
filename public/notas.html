@@ -25,10 +25,13 @@
     </header>
 
     <div class="nova-nota-form">
-      <input type="text" id="tituloNota" placeholder="Título da nota">
-      <textarea id="conteudoNota" placeholder="Escreva sua nota..."></textarea>
-      <input type="color" id="corNota" value="#2f382f">
-      <button id="criarNotaBtn">Criar Nota</button>
+      
+        <input type="text" id="tituloNota" placeholder="Título da nota">
+        <input id="conteudoNota" type="text" placeholder="Escreva sua nota..."></input>
+        <input type="color" id="corNota" value="#2f382f">
+        <button id="criarNotaBtn" type="submit" value="Criar nota">Criar Nota</button>
+      
+      
     </div>
 
     <section class="notas-container">
@@ -49,40 +52,83 @@
     </section>
   </main>
 
-  <script>
-        // Seleciona elementos
-        const btnAdicionar = document.querySelector('.btn-adicionar');
+   <script>
+    // Seleciona elementos
+    const btnAdicionar = document.querySelector('.btn-adicionar');
     const formNovaNota = document.querySelector('.nova-nota-form');
     const criarNotaBtn = document.getElementById('criarNotaBtn');
     const notasContainer = document.querySelector('.notas-container');
 
-    // Mostra/oculta o formulário de nova nota
+    
+    const USER_ID = localStorage.getItem('userId');
+    if (!USER_ID) {
+      
+      window.location.href = '/';
+    }
+
+    criarNotaBtn.type = 'button';
+
     btnAdicionar.addEventListener('click', () => {
       formNovaNota.style.display = formNovaNota.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Cria nova nota
-    criarNotaBtn.addEventListener('click', () => {
-      const titulo = document.getElementById('tituloNota').value.trim();
-      const conteudo = document.getElementById('conteudoNota').value.trim();
-      const cor = document.getElementById('corNota').value;
+    // Função para renderizar nota no DOM
+    function renderNota(nota) {
+      const div = document.createElement('div');
+      div.classList.add('nota');
+      div.style.backgroundColor = nota.color || '#2f382f';
+      div.innerHTML = `<h3>${nota.title}</h3><p>${nota.content}</p>`;
+      notasContainer.appendChild(div);
+    }
 
-      if(titulo && conteudo) {
-        const nota = document.createElement('div');
-        nota.classList.add('nota');
-        nota.style.backgroundColor = cor;
-        nota.innerHTML = `<h3>${titulo}</h3><p>${conteudo}</p>`;
-        notasContainer.appendChild(nota);
+    // Carrega notas do servidor para o usuário
+    async function loadNotas() {
+      try {
+        const res = await fetch(`/notas/${USER_ID}`);
+        if (!res.ok) return;
+        const notas = await res.json();
+        notasContainer.innerHTML = '';
+        notas.forEach(n => renderNota({ title: n.title, content: n.content, color: n.color }));
+      } catch (err) {
+        console.error('Erro ao carregar notas', err);
+      }
+    }
+    loadNotas();
 
-        // Limpa campos do formulário
-        document.getElementById('tituloNota').value = '';
-        document.getElementById('conteudoNota').value = '';
-        document.getElementById('corNota').value = '#2f382f';
-        formNovaNota.style.display = 'none';
-      } else {
+    // Cria nova nota e envia para o servidor
+    criarNotaBtn.addEventListener('click', async () => {
+      const title = document.getElementById('tituloNota').value.trim();
+      const content = document.getElementById('conteudoNota').value.trim();
+      const color = document.getElementById('corNota').value;
+
+      if (!title || !content) {
         alert('Preencha título e conteúdo da nota!');
+        return;
+      }
+
+      try {
+        const res = await fetch('/notas', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content, color, user_id: USER_ID })
+        });
+        const body = await res.json();
+        if (res.ok && body.success) {
+          renderNota({ title, content, color });
+          document.getElementById('tituloNota').value = '';
+          document.getElementById('conteudoNota').value = '';
+          document.getElementById('corNota').value = '#2f382f';
+          formNovaNota.style.display = 'none';
+        } else {
+          alert('Erro ao salvar nota');
+          console.error(body);
+        }
+      } catch (err) {
+        console.error('Erro na requisição', err);
+        alert('Erro ao salvar nota');
       }
     });
   </script>
+  
 </body>
 </html>
