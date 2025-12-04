@@ -10,7 +10,7 @@ const aboutRoute = (connection) => {
     const router = Router();
 
     router.get('/aboutUs', (req, res) => {
-        res.sendFile(join(__dirname, '../public/aboutUs.html'));
+        res.sendFile(join(__dirname, '../public/sobre.html'));
     });
 
     return router;

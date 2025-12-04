@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloco de Notas - Tragetória</title>
+  <link href=".\css\notas.css" rel="stylesheet">
+  <link href=".\css\geral.css" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2 class="logo">Tragetória</h2>
+    <nav>
+      <a href="/home">Gráficos</a>
+      <a href="/notas">Notas</a>
+      <a href="/aboutUs">Sobre</a>
+    </nav>
+    <a href="/"><button class="btn-sair">Sair</button></a>
+  </aside>
+
+  <main class="content">
+    <header class="notas-header">
+      <h1>Bloco de Notas</h1>
+      <button class="btn-adicionar">+ Nova Nota</button>
+    </header>
+
+    <div class="nova-nota-form">
+      <input type="text" id="tituloNota" placeholder="Título da nota">
+      <textarea id="conteudoNota" placeholder="Escreva sua nota..."></textarea>
+      <input type="color" id="corNota" value="#2f382f">
+      <button id="criarNotaBtn">Criar Nota</button>
+    </div>
+
+    <section class="notas-container">
+      <div class="nota">
+        <h3>Planejamento da Semana</h3>
+        <p>Revisar os dados de produção e organizar as metas para a próxima colheita.</p>
+      </div>
+
+      <div class="nota">
+        <h3>Custos de Transporte</h3>
+        <p>Analisar se há rotas mais baratas para envio das cargas.</p>
+      </div>
+
+      <div class="nota">
+        <h3>Contato com Fornecedor</h3>
+        <p>Mandar mensagem para confirmar entrega de insumos até sexta.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+        // Seleciona elementos
+        const btnAdicionar = document.querySelector('.btn-adicionar');
+    const formNovaNota = document.querySelector('.nova-nota-form');
+    const criarNotaBtn = document.getElementById('criarNotaBtn');
+    const notasContainer = document.querySelector('.notas-container');
+
+    // Mostra/oculta o formulário de nova nota
+    btnAdicionar.addEventListener('click', () => {
+      formNovaNota.style.display = formNovaNota.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Cria nova nota
+    criarNotaBtn.addEventListener('click', () => {
+      const titulo = document.getElementById('tituloNota').value.trim();
+      const conteudo = document.getElementById('conteudoNota').value.trim();
+      const cor = document.getElementById('corNota').value;
+
+      if(titulo && conteudo) {
+        const nota = document.createElement('div');
+        nota.classList.add('nota');
+        nota.style.backgroundColor = cor;
+        nota.innerHTML = `<h3>${titulo}</h3><p>${conteudo}</p>`;
+        notasContainer.appendChild(nota);
+
+        // Limpa campos do formulário
+        document.getElementById('tituloNota').value = '';
+        document.getElementById('conteudoNota').value = '';
+        document.getElementById('corNota').value = '#2f382f';
+        formNovaNota.style.display = 'none';
+      } else {
+        alert('Preencha título e conteúdo da nota!');
+      }
+    });
+  </script>
+</body>
+</html>

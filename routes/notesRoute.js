@@ -10,7 +10,7 @@ const notesRoute = (connection) => {
     const router = Router();
 
     router.get("/notas", (req, res) => {
-        res.sendFile(join(__dirname, "../public/notes.html"));
+        res.sendFile(join(__dirname, "../public/notas.html"));
     });
 
     return router;

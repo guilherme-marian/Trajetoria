@@ -106,6 +106,10 @@ app.get('/user-graphs/:userId', (req, res) => {
   );
 });
 
+app.get('/api-key', (req, res) => {
+    res.json({ apiKey: process.env.API_KEY });
+});
+
 app.listen(3000, () => {
     console.log("server rodando: http://localhost:3000");
 });

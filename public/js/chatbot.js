@@ -7,8 +7,16 @@ const fileCancelButton = document.querySelector("#file-cancel");
 const chatbotToggler = document.querySelector("#chatbot-toggler");
 const closeChatbot = document.querySelector("#close-chatbot");
 
-const API_KEY =  'AIzaSyC6NJUxh6r6LokKyA23bSDH0BYPq4q_Brc';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+fetch('/api-key')
+    .then(response => response.json())
+    .then(data => {
+        const apiKey = data.apiKey; // Correct variable name
+        console.log('API Key:', apiKey);
+
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        console.log('API URL:', API_URL);
+    })
+    .catch(error => console.error('Error fetching API key:', error));
 
 const userData = {
     message: null,
