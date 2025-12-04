@@ -25,8 +25,9 @@ const loginRoute = (connection) => {
                 res.status(500).send('Erro no servidor');
             }
             else if (results.length > 0) {
+                const userId = results[0].id_user;
                 console.log('Login bem sucedido!');
-                res.redirect('/home');
+                res.json({ success: true, userId });
             }
             else {
                 res.status(401).send('Credenciais inválidas');
@@ -42,8 +43,9 @@ const loginRoute = (connection) => {
                 res.status(500).send('Erro no servidor');
             }
             else {
+                const userId = results.insertId;
                 console.log('Registro bem sucedido!');
-                res.redirect('/home');
+                res.json({ success: true, userId });
             }
         });
     });

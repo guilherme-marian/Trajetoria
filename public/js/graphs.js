@@ -16,7 +16,7 @@ function addGraph() {
                         <input type="radio" name="GraphType" id="GraphType" onClick="chartType('bar')">Bar Graph</input>
                         <input type="radio" name="GraphType" id="GraphType" onClick="chartType('line')">Line Graph</input>
                         <input type="radio" name="GraphType" id="GraphType" onClick="chartType('pie')">Pie Graph</input>
-                        <input type="button" onclick="addLine()">Add Line</input>
+                        <input type="button" value="add Line" onclick="addLine()"></input>
                         <div id="line-container">
                             <input type="text" placeholder="Texto" class="name">
                             <input type="number" placeholder="Valor" class="number">
@@ -51,10 +51,13 @@ function submitForm(event) {
         }
     });
 
+    const user_id = localStorage.getItem('userId');
+    console.log('Sending user_id:', user_id);
+
     fetch('/Criar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({line, title, GraphType: chart_type})
+        body: JSON.stringify({line, title, GraphType: chart_type, user_id})
     })
     .then(response => response.json())
     .then(data => {
@@ -71,4 +74,30 @@ function submitForm(event) {
     });
 }
 
-window.onload = addLine;
+function loadUserGraphs(userId) {
+    fetch(`/user-graphs/${userId}`)
+        .then(res => res.json())
+        .then(graphs => {
+            const container = document.getElementById('chart-container');
+            container.innerHTML = ''; 
+
+            graphs.forEach(graph => {
+                const img = document.createElement('img');
+                img.src = `img/${graph.image_path}`;
+                img.alt = graph.title;
+                img.style.maxWidth = '400px';
+                img.style.margin = '10px';
+                container.appendChild(img);
+            });
+        })
+        .catch(err => console.error('Error loading graphs:', err));
+}
+
+
+window.onload = () => {
+    addLine();
+    const userId = localStorage.getItem('userId'); 
+    if (userId) {
+        loadUserGraphs(userId);
+    }
+};

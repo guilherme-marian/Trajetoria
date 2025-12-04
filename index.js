@@ -53,7 +53,7 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/Criar', (req, res) => {
-    const {line, title, GraphType} = req.body; 
+    const {line, title, GraphType, user_id} = req.body; 
     const jsonString = JSON.stringify(line);
     const imageName = `output_${Date.now()}_${crypto.randomBytes(4).toString('hex')}.png`;
     console.log('Received data:', jsonString);
@@ -61,14 +61,15 @@ app.post('/Criar', (req, res) => {
     console.log('Chart title:', title);
     console.log('Graph type:', GraphType);
     
-    connection.query('INSERT INTO Graphs (title, chart_type, data_json) VALUES (?, ?, ?)', [title, GraphType, jsonString], (err, results) => {
+    connection.query(
+    'INSERT INTO Graphs (title, chart_type, data_json, user_id, image_path) VALUES (?, ?, ?, ?, ?)',
+    [title, GraphType, jsonString, user_id, imageName],
+    (err, results) => {
         if (err) {
-            console.error(err);
-            res.status(500).send('Erro no servidor');
+        console.error(err);
+        return res.status(500).send('Erro no servidor');
         }
-        else {
-            console.log('Registro bem sucedido!');
-        }
+        console.log('Registro bem sucedido!');
     });
 
     const pythonProcess = spawn(
@@ -88,6 +89,21 @@ app.post('/Criar', (req, res) => {
         console.log(`Process exited with code ${code}`);
         res.json({ status: 'success', data: result, imagePath: `/img/${imageName}`  });
     });
+});
+
+app.get('/user-graphs/:userId', (req, res) => {
+  const userId = req.params.userId;
+  connection.query(
+    'SELECT id, title, chart_type, data_json, image_path FROM Graphs WHERE user_id = ? ORDER BY created_at DESC',
+    [userId],
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Erro no servidor');
+      }
+      res.json(results);
+    }
+  );
 });
 
 app.listen(3000, () => {

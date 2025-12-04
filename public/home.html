@@ -20,18 +20,13 @@
                 </div>
                 <ul class="navbar__menu">
                     <li class="navbar__item">
-                        <a href="http://localhost:3000/" class="navbar__links">
+                        <a href="http://localhost:3000/home" class="navbar__links">
                             Home
                         </a>
                     </li>
                     <li class="navbar__item">
                         <a href="http://localhost:3000/notas" class="navbar__links">
                             Notas
-                        </a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="http://localhost:3000/tarefas" class="navbar__links">
-                            Gerenciamento de Tarefas
                         </a>
                     </li>
                     <li class="navbar__btn">
@@ -55,7 +50,7 @@
                             <input type="radio" name="GraphType" id="GraphType" value="bar" onClick="chartType('bar')">Bar Graph</input>
                             <input type="radio" name="GraphType" id="GraphType" value="line" onClick="chartType('line')">Line Graph</input>
                             <input type="radio" name="GraphType" id="GraphType" value="pie" onClick="chartType('pie')">Pie Graph</input>
-                            <input type="button" onclick="addLine()">Add Line</input>
+                            <input type="button" value="add Line" onclick="addLine()"></input>
                             <div id="line-container">
                                 
                             </div>
