@@ -85,6 +85,11 @@ app.post('/Criar', (req, res) => {
         result += data;
     });
 
+    pythonProcess.on('error', (err) => {
+        console.error('Failed to start Python process:', err);
+        return res.status(500).json({ status: 'error', error: 'Failed to start Python process', details: String(err) });
+    });
+
     pythonProcess.on('close', (code) => {
         console.log(`Process exited with code ${code}`);
         res.json({ status: 'success', data: result, imagePath: `/img/${imageName}`  });
