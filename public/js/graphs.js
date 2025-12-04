@@ -13,7 +13,7 @@ function addGraph() {
     const div = document.createElement('div');
     div.innerHTML = `
                     <form action="/Criar" method="post">
-                        <input type="radio" name="GraphType" id="GraphType" onClick="chartType('bar')">Bar Graph</input>
+                        <input type="radio" name="GraphType" id="GraphType" checked onClick="chartType('bar')">Bar Graph</input>
                         <input type="radio" name="GraphType" id="GraphType" onClick="chartType('line')">Line Graph</input>
                         <input type="radio" name="GraphType" id="GraphType" onClick="chartType('pie')">Pie Graph</input>
                         <input type="button" value="add Line" onclick="addLine()"></input>
