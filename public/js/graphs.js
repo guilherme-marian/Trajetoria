@@ -83,8 +83,6 @@ function loadUserGraphs(userId) {
 
             graphs.forEach(graph => {
                 const img = document.createElement('img');
-                const btn = document.createElement('button');
-                btn.textContent = 'Delete';
                 btn.onclick = () => {
                     fetch(`/delete-graph/${graph.id}`, { method: 'DELETE' })
                         .then(response => {
@@ -93,19 +91,11 @@ function loadUserGraphs(userId) {
                             }
                         });
                 }
-                btn.style.display = 'block';
-                btn.style.marginBottom = '20px';
-                btn.style.backgroundColor = '#ff4d4d';
-                btn.style.color = 'white';
-                btn.style.border = 'none';
-                btn.style.padding = '10px 20px';
-                btn.style.cursor = 'pointer';
                 img.src = `img/${graph.image_path}`;
                 img.alt = graph.title;
                 img.style.maxWidth = '400px';
                 img.style.margin = '10px';
                 container.appendChild(img, btn);
-                container.appendChild(btn);
             });
         })
         .catch(err => console.error('Error loading graphs:', err));
